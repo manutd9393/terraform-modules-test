@@ -7,7 +7,7 @@ resource "azurerm_service_plan" "webapp_plan" {
   name                = var.webapp_config.service_plan_name
   resource_group_name = azurerm_resource_group.webapp.name
   location            = azurerm_resource_group.webapp.location
-  os_type             = "linux"
+  os_type             = "Linux"
   sku_name            = "B1"
 }
 
