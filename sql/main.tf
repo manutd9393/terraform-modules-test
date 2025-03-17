@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.22.0"
+    }
+  }
+}
+
 resource "azurerm_resource_group" "sql" {
   name     = var.sql_config.resource_group_name
   location = var.sql_config.location
