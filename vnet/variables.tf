@@ -14,9 +14,10 @@ variable "vnet_config" {
     name          = string
     address_space = list(string)
     subnets       = map(object({
-      name       = string
-      prefix     = string
-      delegation = optional(string)  # Optional for Private Endpoints
+      name                     = string
+      prefix                   = string
+      delegation               = optional(string)
+      enable_private_endpoint  = optional(bool, false)  # ✅ Ensure private endpoints are handled properly
     }))
   })
 }
