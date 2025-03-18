@@ -4,7 +4,7 @@ variable "resource_group_name" {
 }
 
 variable "location" {
-  description = "Azure region where the resources will be created"
+  description = "Azure region"
   type        = string
 }
 
@@ -16,8 +16,8 @@ variable "vnet_config" {
     subnets       = map(object({
       name                     = string
       prefix                   = string
+      enable_private_endpoint  = optional(bool, false)
       delegation               = optional(string)
-      enable_private_endpoint  = optional(bool, false)  # ✅ Ensure private endpoints are handled properly
     }))
   })
 }

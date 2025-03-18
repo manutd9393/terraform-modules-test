@@ -26,8 +26,8 @@ resource "azurerm_subnet" "subnets" {
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = [each.value.prefix]
 
-  # ✅ Correct: Use `private_endpoint_network_policies` instead of `private_endpoint_network_policies_enabled`
-  private_endpoint_network_policies = each.value.enable_private_endpoint ? "Disabled" : "Enabled"
+  # ✅ Corrected Private Endpoint Policies
+  private_endpoint_network_policies     = each.value.enable_private_endpoint ? "Disabled" : null
 
   dynamic "delegation" {
     for_each = each.value.delegation != null ? [1] : []
