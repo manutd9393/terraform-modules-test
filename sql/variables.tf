@@ -1,5 +1,5 @@
 variable "sql_config" {
-  description = "Configuration for Azure SQL Server and Database"
+  description = "Configuration for SQL Server & Database"
   type = object({
     resource_group_name   = string
     location             = string
@@ -7,8 +7,10 @@ variable "sql_config" {
     sql_database_name    = string
     admin_username       = string
     admin_password       = string
-    sku_name             = optional(string, "Basic")  # e.g., "S0", "S1", "P1"
-    max_size_gb          = optional(number, 5)       # Default 5 GB
-    allow_azure_services = optional(bool, true)      # Whether to allow Azure services to connect
+    sku_name             = string
+    max_size_gb          = number
+    private_endpoint_subnet_id = string
+    private_dns_zone_ids       = list(string)
+    vnet_id                    = string
   })
 }
