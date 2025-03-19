@@ -9,7 +9,7 @@ resource "azurerm_service_plan" "webapp_plan" {
   resource_group_name = azurerm_resource_group.webapp.name
   location            = azurerm_resource_group.webapp.location
   os_type             = "Linux"
-  sku_name            = "P1V2"
+  sku_name            = "P1v2"
 }
 
 # ✅ App Service
